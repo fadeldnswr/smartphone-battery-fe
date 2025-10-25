@@ -6,7 +6,7 @@ const metricsList = [
     { metricsName: "Tegangan (V)", metricsValue: 4.26 },
     { metricsName: "Arus (A)", metricsValue: 0.84 },
     { metricsName: "Suhu (°C)", metricsValue: 32.5 },
-    { metricsName: "Kelembapan (%)", metricsValue: 70 },
+    { metricsName: "Kondisi Termal (C)", metricsValue: 30 },
     { metricsName: "Rx Bytes", metricsValue: 580080813 },
     { metricsName: "Tx Bytes", metricsValue: 430050210 },
     { metricsName: "Throughput (MB)", metricsValue: 10 },
