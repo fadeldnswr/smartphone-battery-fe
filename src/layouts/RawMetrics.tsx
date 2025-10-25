@@ -16,8 +16,8 @@ const metricsList = [
 // Define function to render raw metrics layout
 const RawMetrics = () => {
   return (
-    <section>
-      <h1>
+    <section className="box-border size-auto border-4 p-4 rounded-xl">
+      <h1 className="text-xl mb-4">
         Smartphone Battery Parameters
       </h1>
       <div className="grid grid-cols-2 gap-4">
