@@ -1,6 +1,7 @@
 import RawMetrics from "@/layouts/RawMetrics";
 import EnergyAnalysis from "@/layouts/EnergyAnalysis";
 import BatteryImpactAnalysis from "@/layouts/BatteryImpactAnalysis";
+import Insights from "@/layouts/Insights";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <RawMetrics />
       <EnergyAnalysis />
       <BatteryImpactAnalysis />
+      <Insights />
     </div>
   );
 }
