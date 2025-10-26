@@ -10,11 +10,11 @@ interface MetricsCardProps {
 const MetricsCard: React.FC<MetricsCardProps> = ({metricsName, metricsValue}) => {
   return (
     <div className="box-border size-auto border-4 p-4 rounded-xl">
-      <div className="font-semibold">
+      <div className="text-slate-950">
         <h3>{metricsName}</h3>
       </div>
       <div>
-        <p>{metricsValue}</p>
+        <p className="text-5xl font-bold">{metricsValue}</p>
       </div>
     </div>
   )
