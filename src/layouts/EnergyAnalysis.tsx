@@ -12,7 +12,7 @@ const graphsList = [
 const EnergyAnalysis = () => {
   return (
     <section className="box-border size-auto border-2 p-4 rounded-xl mt-4">
-      <h1 className="text-2xl mb-4 text-[#0A0E1F] pl-2 font-semibold">
+      <h1 className="text-2xl mb-4 text-[#0A0E1F] pl-2 font-semibold text-center">
         Energy Analysis
       </h1>
       <div className="grid grid-cols-2 gap-4">

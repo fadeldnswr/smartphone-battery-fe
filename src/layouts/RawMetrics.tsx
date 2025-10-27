@@ -17,7 +17,7 @@ const metricsList = [
 const RawMetrics = () => {
   return (
     <section className="box-border size-auto border-4 p-4 rounded-xl">
-      <h1 className="text-2xl mb-4 text-[#0A0E1F] pl-2 font-semibold">
+      <h1 className="text-2xl mb-4 text-[#0A0E1F] pl-2 font-semibold text-center">
         Device Condition
       </h1>
       <div className="grid grid-cols-2 gap-4">
