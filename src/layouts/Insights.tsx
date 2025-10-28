@@ -11,10 +11,10 @@ const runningApps = [
 
 const Insights = () => {
   return (
-    <section className="box-border size-auto border-2 p-4 rounded-xl mt-4">
+    <section className="box-border size-auto border-4 p-4 rounded-xl mt-4 bg-[#FFFFFF] font-sans">
       <h1 className="text-2xl mb-4 text-[#0A0E1F] pl-2 font-semibold text-center">Most Running Application</h1>
       <div className="grid grid-cols-2 mt-4">
-        <div className="box-border size-auto border-4 rounded-xl">
+        <div className="box-border size-auto border-2 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
           {runningApps.map((app, index) => (
             <MostRunningApp
             key={index}
@@ -22,9 +22,9 @@ const Insights = () => {
             usagePercentage={app.usagePercentage} />
           ))}
         </div>
-        <div className="box-border size-auto border-4 p-4 rounded-xl ml-4">
-          <h3 className="text-center font-semibold">Insights & Recommendation</h3>
-          <p className="text-justify mt-4">Device anda masih termasuk dalam kondisi sehat,
+        <div className="box-border size-auto border-2 p-4 rounded-xl ml-4 shadow-md hover:shadow-lg transition-all duration-300">
+          <h3 className="text-center font-semibold font-sans">Insights & Recommendation</h3>
+          <p className="text-justify mt-4 font-sans">Device anda masih termasuk dalam kondisi sehat,
             tetap pertahankan selama 1-2 tahun kedepan untuk
             mengurangi kontribusi limbah elektronik</p>
         </div>

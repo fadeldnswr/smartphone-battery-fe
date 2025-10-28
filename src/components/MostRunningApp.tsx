@@ -9,7 +9,7 @@ interface MostRunningAppProps {
 
 const MostRunningApp: React.FC<MostRunningAppProps> = ({appName, usagePercentage}) => {
   return (
-    <div className="box-border size-auto p-4 rounded-xl">
+    <div className="box-border size-auto p-4 rounded-xl font-sans">
       <div className="grid grid-cols-2">
         <div>
           <p className="font-semibold">{appName}</p>

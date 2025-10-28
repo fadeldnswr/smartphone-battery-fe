@@ -6,7 +6,7 @@ import Navbar from "@/layouts/Navbar";
 
 export default function Home() {
   return (
-    <div className="font-['Lexend'] p-4">
+    <div className="font-['Lexend'] p-4 bg-[#F9FAFB]">
       <Navbar />
       <RawMetrics />
       <EnergyAnalysis />
