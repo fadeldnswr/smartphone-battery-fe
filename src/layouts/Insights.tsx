@@ -23,7 +23,7 @@ const Insights = () => {
           ))}
         </div>
         <div className="box-border size-auto border-2 p-4 rounded-xl ml-4 shadow-md hover:shadow-lg transition-all duration-300">
-          <h3 className="text-center font-semibold font-sans">Insights & Recommendation</h3>
+          <h3 className="text-center font-semibold font-sans text-gray-500">Insights & Recommendation</h3>
           <p className="text-justify mt-4 font-sans">Device anda masih termasuk dalam kondisi sehat,
             tetap pertahankan selama 1-2 tahun kedepan untuk
             mengurangi kontribusi limbah elektronik</p>
