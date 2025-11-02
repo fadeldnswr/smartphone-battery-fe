@@ -22,8 +22,21 @@ export interface RawMetricsProps {
   energy_nwh: number | null;
 }
 
+export interface RawMetricsPropsWithThroughput extends RawMetricsProps {
+  throughput_total_mbps?: number | null;
+  throughput_upload_mbps?: number | null;
+  throughput_download_mbps?: number | null;
+}
+
+export interface ThroughputRow {
+  throughput_total_mbps?: number | null;
+  throughput_upload_mbps?: number | null;
+  throughput_download_mbps?: number | null;
+}
+
 // Create interface for the API response
 export interface MetricsResponse {
   message: string;
   data: RawMetricsProps[];
+  throughput?: ThroughputRow[];
 }

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import MetricsCard from "@/components/MetricsCard";
 import { fetchMetrics } from "@/lib/fetchMetrics";
-import { RawMetricsProps } from "@/types/metrics";
+import { RawMetricsPropsWithThroughput } from "@/types/metrics";
 
 // Define type props for RawMetrics component
 type RawMetricsRecord = {
@@ -14,7 +14,7 @@ type RawMetricsRecord = {
 // Define function to render raw metrics layout
 const RawMetrics: React.FC<RawMetricsRecord> = ({device_id = "SM-S931B-57bc0e2d9eac7750", table_name = "raw_metrics"}) => {
   // Define state for metrics data
-  const [metrics, setMetrics] = useState<RawMetricsProps | null>(null);
+  const [metrics, setMetrics] = useState<RawMetricsPropsWithThroughput | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -28,7 +28,10 @@ const RawMetrics: React.FC<RawMetricsRecord> = ({device_id = "SM-S931B-57bc0e2d9
 
       try {
         const data = await fetchMetrics({ table_name, device_id });
-        if(!cancelled) setMetrics(data); 
+        if(!cancelled) {
+          setMetrics(data as RawMetricsPropsWithThroughput);
+          console.log("Fetched metrics:", data);
+        }; 
       } catch (error: unknown) {
         if (!cancelled) {
           const message = error instanceof Error ? error.message : "Failed to fetch metrics";
@@ -57,7 +60,8 @@ const RawMetrics: React.FC<RawMetricsRecord> = ({device_id = "SM-S931B-57bc0e2d9
         ? metrics.channel_quality : "N/A"},
       {metricsName: "Charging?", metricsValue: `${metrics.is_charging != null 
         ? metrics.is_charging : "N/A"}`},
-      {metricsName: "Throughput", metricsValue: `${metrics.batt_voltage_mv}`},
+      {metricsName: "Throughput (Mbps)", metricsValue: `${metrics.throughput_total_mbps != null 
+        ? metrics.throughput_total_mbps.toFixed(2) : "N/A"}`},
       {metricsName: "Usage Application", metricsValue: `${metrics.fg_pkg != null 
         ? metrics.fg_pkg : "N/A"}`},
       {metricsName: "Battery Level (%)", metricsValue: `${metrics.battery_level != null 

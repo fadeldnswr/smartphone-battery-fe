@@ -1,4 +1,4 @@
-import { MetricsResponse, RawMetricsProps } from "@/types/metrics";
+import { MetricsResponse, RawMetricsProps, ThroughputRow } from "@/types/metrics";
 
 // Define URL for the backend API
 const API = process.env.NEXT_PUBLIC_URL;
@@ -10,7 +10,7 @@ type FetchMetricsParams = {
 
 // Define function to fetch metrics data
 export async function fetchMetrics({
-  table_name = "raw_metrics", device_id}: FetchMetricsParams): Promise<RawMetricsProps | null> {
+  table_name = "raw_metrics", device_id}: FetchMetricsParams): Promise<RawMetricsProps | ThroughputRow | null> {
   
   // Check if URL is defined
   if(!API){
@@ -38,5 +38,12 @@ export async function fetchMetrics({
 
   // Return the JSON response
   const json = await response.json() as MetricsResponse;
-  return json.data?.[0] ?? null;
+  const jsonResult = json.data?.[0] ?? null
+  const thrObj = Array.isArray(json.throughput) ? json.throughput[0] : null;
+  
+  const throughput = thrObj?.throughput_total_mbps ?? null;
+  return {
+    ...jsonResult,
+    throughput_total_mbps: throughput,
+  };
 }
