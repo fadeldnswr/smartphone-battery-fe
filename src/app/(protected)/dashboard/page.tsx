@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <div className="font-['Lexend'] p-4 bg-[#F9FAFB]">
       <Navbar />
-      <RawMetrics />
-      <EnergyAnalysis />
+      <RawMetrics device_id="SM-S931B-57bc0e2d9eac7750" table_name="raw_metrics" />
+      <EnergyAnalysis device_id="SM-S931B-57bc0e2d9eac7750" />
       <BatteryImpactAnalysis />
       <Insights />
     </div>

@@ -40,3 +40,40 @@ export interface MetricsResponse {
   data: RawMetricsProps[];
   throughput?: ThroughputRow[];
 }
+
+// Define throughput point interface for history data
+export interface ThroughputPoint {
+  timestamp: string;
+  throughput_total_mbps: number;
+  throughput_upload_mbps: number;
+  throughput_download_mbps: number;
+}
+
+// Define energy point interface for history data
+export interface EnergyPoint {
+  timestamp: string;
+  energy_nwh: number;
+}
+
+// Define energy per bit point interface for history data
+export interface EnergyPerBitPoint {
+  timestamp: string;
+  energy_per_bit_tx_J: number;
+  energy_per_bit_rx_J: number;
+  energy_per_bit_avg_J: number;
+}
+
+// Define battery cost point interface for history data
+export interface BatteryCostPoint {
+  timestamp: string;
+  BoT_mAh_per_Gbps: number;
+}
+
+// Define throughput history response interface
+export interface GraphHistoryResponse {
+  device_id: string;
+  thr_points: ThroughputPoint[];
+  energy_points: EnergyPoint[];
+  energy_per_bit_points: EnergyPerBitPoint[];
+  bot_points: BatteryCostPoint[];
+}

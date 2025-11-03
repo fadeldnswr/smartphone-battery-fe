@@ -7,12 +7,12 @@ import { RawMetricsPropsWithThroughput } from "@/types/metrics";
 
 // Define type props for RawMetrics component
 type RawMetricsRecord = {
-  table_name?: string;
+  table_name: string;
   device_id: string;
 }
 
 // Define function to render raw metrics layout
-const RawMetrics: React.FC<RawMetricsRecord> = ({device_id = "SM-S931B-57bc0e2d9eac7750", table_name = "raw_metrics"}) => {
+const RawMetrics: React.FC<RawMetricsRecord> = ({device_id, table_name}) => {
   // Define state for metrics data
   const [metrics, setMetrics] = useState<RawMetricsPropsWithThroughput | null>(null);
   const [loading, setLoading] = useState<boolean>(false);

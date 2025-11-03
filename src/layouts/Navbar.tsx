@@ -61,7 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({
           )}
           {!loading && !error && device && (
             <p>
-              Device: {device.device_id}
+              Device: {device.device_id} A.K.A HP ARREL!!
             </p>
           )}
         </div>
