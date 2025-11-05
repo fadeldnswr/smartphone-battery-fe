@@ -127,6 +127,7 @@ const EnergyGraphs: React.FC<GraphProps> = ({graphTitle, device_id, refreshMs = 
                 name="Total Energy (Wh)"
                 stroke="#0A0E1F"
                 dot={false}
+                strokeWidth={2}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -160,6 +161,7 @@ const EnergyGraphs: React.FC<GraphProps> = ({graphTitle, device_id, refreshMs = 
                   name="Total Throughput (Mbps)"
                   stroke="#0A0E1F"
                   dot={false}
+                  strokeWidth={2}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -193,6 +195,7 @@ const EnergyGraphs: React.FC<GraphProps> = ({graphTitle, device_id, refreshMs = 
                   name="Battery Cost of Traffic (mAh/Gbps)"
                   stroke="#0A0E1F"
                   dot={false}
+                  strokeWidth={2}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -226,6 +229,7 @@ const EnergyGraphs: React.FC<GraphProps> = ({graphTitle, device_id, refreshMs = 
                   name="Average Energy Per Bit (Joule)"
                   stroke="#0A0E1F"
                   dot={false}
+                  strokeWidth={2}
                 />
               </LineChart>
             </ResponsiveContainer>
