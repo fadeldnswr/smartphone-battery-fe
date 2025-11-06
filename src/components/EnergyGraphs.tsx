@@ -100,7 +100,7 @@ const EnergyGraphs: React.FC<GraphProps> = ({graphTitle, device_id, refreshMs = 
       <div className="text-center text-gray-500">
         <h2 className="font-sans">{graphTitle}</h2>
       </div>
-
+      
       {isEnergy && (
         <div className="w-full h-72">
           {loading && energy.length === 0 ? (
@@ -124,7 +124,7 @@ const EnergyGraphs: React.FC<GraphProps> = ({graphTitle, device_id, refreshMs = 
               <Line 
                 type="monotone"
                 dataKey="energy_wh"
-                name="Total Energy (Wh)"
+                name="Energy (Wh)"
                 stroke="#0A0E1F"
                 dot={false}
                 strokeWidth={2}
@@ -158,7 +158,7 @@ const EnergyGraphs: React.FC<GraphProps> = ({graphTitle, device_id, refreshMs = 
                 <Line 
                   type="monotone"
                   dataKey="throughput_total_mbps"
-                  name="Total Throughput (Mbps)"
+                  name="Throughput (Mbps)"
                   stroke="#0A0E1F"
                   dot={false}
                   strokeWidth={2}

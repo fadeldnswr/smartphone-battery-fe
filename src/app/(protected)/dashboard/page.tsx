@@ -10,7 +10,7 @@ export default function Home() {
       <Navbar />
       <RawMetrics device_id="SM-S931B-57bc0e2d9eac7750" table_name="raw_metrics" />
       <EnergyAnalysis device_id="SM-S931B-57bc0e2d9eac7750" />
-      <BatteryImpactAnalysis />
+      <BatteryImpactAnalysis device_id="SM-S931B-57bc0e2d9eac7750" table_name="raw_metrics" />
       <Insights />
     </div>
   );
