@@ -48,7 +48,7 @@ const Navbar: React.FC<NavbarProps> = ({
     <section>
       <nav className="grid grid-cols-4 mb-4 p-1">
         <div className="col-span-2">
-          <h1 className="text-5xl font-bold mb-4 text-[#0A0E1F]">Smartphone Dashboard Analysis</h1>
+          <h1 className="text-5xl font-bold mb-4 text-gray-900">Device Analytics</h1>
           {loading && (
             <p className="text-gray-500 p-6">
               Loading..
@@ -60,8 +60,8 @@ const Navbar: React.FC<NavbarProps> = ({
             </p>
           )}
           {!loading && !error && device && (
-            <p>
-              Device: {device.device_id}
+            <p className="text-gray-500 pl-2">
+              {device.device_id}
             </p>
           )}
         </div>
