@@ -30,7 +30,7 @@ const LoginPage = () => {
       setLoading(false);
       if(response.ok){
         toast.success("Login successful!");
-        setTimeout(() => router.push("/setup-device"), 1000); 
+        setTimeout(() => router.push("/setup-device"), 800); 
       } else {
         const {error} = await response.json().catch(() => ({
           error: "Login failed",

@@ -23,3 +23,21 @@ export interface BatteryMetricsResponse {
   soh_data: SoH[];
   cycles_data: Cycles[];
 }
+
+// Define battery summary metrics interface
+export interface BatterySummaryMetrics {
+  energy_last_wh: number;
+  avg_thr_last_mbps: number;
+  avg_bot_last: number;
+  avg_epb_last: number;
+  energy_today_wh: number;
+}
+
+// Define battery summary metrics response interface
+export interface BatterySummaryMetricsResponse {
+  message: string;
+  device_id: string;
+  window_start: string | null;
+  window_end: string | null;
+  summary: BatterySummaryMetrics | null;
+}

@@ -6,14 +6,11 @@ import { RawMetricsProps } from "@/types/metrics";
 
 // Define type props for Device id
 type NavbarProps = {
-  device_id?: string;
-  table_name?: string;
+  device_id: string;
+  table_name: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({
-  device_id = "SM-S931B-57bc0e2d9eac7750",
-  table_name = "raw_metrics"
-}) => {
+const Navbar: React.FC<NavbarProps> = ({ device_id, table_name }) => {
   const [device, setDevice] = useState<RawMetricsProps | null>(null);
   const [loading, setLoading] = useState<boolean | null>(false);
   const [error, setError] = useState<string | null>(null);
