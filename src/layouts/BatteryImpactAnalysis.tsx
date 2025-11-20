@@ -65,7 +65,7 @@ const BatteryImpactAnalysis: React.FC<BatteryImpactAnalysisProps> = ({device_id,
     <section className="box-border size-auto border-4 p-4 rounded-xl mt-4 bg-[#FFFFFF]">
       <h1 className="text-2xl mb-4 text-[#0A0E1F] pl-2 font-semibold font-sans text-center">Battery Impact Analysis</h1>
       <div className="grid grid-cols-2 gap-4">
-        <RULGraphs graphTitle="Grafik Prediksi RUL" />
+        <RULGraphs graphTitle="State of Health Prediction" />
         {loading && (
           <div className="text-center text-gray-500 p-6">
             Loading...
