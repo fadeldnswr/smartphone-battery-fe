@@ -39,5 +39,5 @@ export interface BatterySummaryMetricsResponse {
   device_id: string;
   window_start: string | null;
   window_end: string | null;
-  summary: BatterySummaryMetrics | null;
+  summary: BatterySummaryMetrics;
 }
