@@ -9,6 +9,7 @@ export interface PredictionMetricsResponse {
   rul_months: number;
   rul_hours: number;
   soh_series: SoHPoint[];
+  expiry_date?: string | null;
 }
 
 // Define prediction metrics for SoH

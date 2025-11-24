@@ -30,6 +30,7 @@ export interface ImpactResponse {
   soh_pred_pct: number;
   rul_months: number;
   screen_label: ScreenLabel;
+  expiry_date?: string | null;
   scenarios: {
     conservative: EwasteImpact;
     optimistic: EwasteImpact;
