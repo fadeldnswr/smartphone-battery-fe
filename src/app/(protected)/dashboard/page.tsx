@@ -1,8 +1,4 @@
-import RawMetrics from "@/layouts/RawMetrics";
-import EnergyAnalysis from "@/layouts/EnergyAnalysis";
-import BatteryImpactAnalysis from "@/layouts/BatteryImpactAnalysis";
-import Insights from "@/layouts/Insights";
-import Navbar from "@/layouts/Navbar";
+import DashboardClient from "@/layouts/DashboardClient";
 import { createSupabaseRSC } from "@/lib/supabase/server-rsc";
 import { redirect } from "next/navigation";
 
@@ -25,13 +21,17 @@ export default async function Home() {
   // Check active devices
   const activeDevice = devices.find((device) => device.is_default) ?? devices[0];
   const deviceId = activeDevice.device_id;
+
+  // Get soh_pred_pct and rul_months from predictions table
+  const soh_pred_pct: number | null = null;
+  const rul_months: number | null = null;
   return (
     <div className="font-['Lexend'] p-4 bg-[#F9FAFB]">
-      <Navbar device_id={deviceId} table_name="raw_metrics" />
-      <RawMetrics device_id={deviceId} table_name="raw_metrics" />
-      <EnergyAnalysis device_id={deviceId} />
-      <BatteryImpactAnalysis device_id={deviceId} table_name="raw_metrics" />
-      <Insights table_name="raw_metrics" device_id={deviceId} top_rank={4} />
+      <DashboardClient
+      device_id={deviceId}
+      soh_pred_pct={soh_pred_pct}
+      rul_months={rul_months}
+      />
     </div>
   );
 }
