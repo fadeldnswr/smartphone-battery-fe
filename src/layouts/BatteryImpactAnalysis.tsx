@@ -30,7 +30,7 @@ const BatteryImpactAnalysis: React.FC<BatteryImpactAnalysisProps> = ({device_id,
       setError(null);
 
       try {
-        // Define statef for fetch battery metrics
+        // Define state for fetch battery metrics
         const [metricsRes, predictionRes] = await Promise.all([
           fetchBatteryMetrics({ device_id, table_name }),
           fetchPrediction({ device_id })
@@ -50,7 +50,7 @@ const BatteryImpactAnalysis: React.FC<BatteryImpactAnalysisProps> = ({device_id,
         if(!cancelled) setLoading(false);
       }
     }
-
+    // Call fetch data function
     fetchData();
 
     return () => {
@@ -95,7 +95,7 @@ const BatteryImpactAnalysis: React.FC<BatteryImpactAnalysisProps> = ({device_id,
   // Define list for prediction metrics
   const predictionList = [
     {
-      metricTitle: "Estimated Remaining Useful Life",
+      metricTitle: "Estimated RUL",
       metricValue: rulMonths != null ? rulMonths.toFixed(1) : "N/A",
       metricSubtitle:
         rulFmt && sohPredPct != null
@@ -108,9 +108,7 @@ const BatteryImpactAnalysis: React.FC<BatteryImpactAnalysisProps> = ({device_id,
         sohPredPct != null ? `${sohPredPct.toFixed(2)} %` : "N/A",
       metricSubtitle:
         sohPredPct != null
-          ? `Baterai diperkirakan masih sekitar ${sohPredPct.toFixed(
-              1
-            )}% dari kapasitas awalnya. Angka ini yang dipakai model untuk menghitung RUL.`
+          ? `Baterai diperkirakan masih sekitar ${sohPredPct.toFixed(1)}% dari kapasitas awalnya.`
           : "Prediksi SoH tidak tersedia untuk saat ini.",
     },
     {
