@@ -23,7 +23,7 @@ const MostRunningApp: React.FC<MostRunningAppProps> = ({appName, totalMb}) => {
   const percentOfMax = Math.min((totalMb / MAX_MB) * 100, 100);
 
   return (
-    <div className="box-border size-auto p-4 rounded-xl font-sans w-full">
+    <div className="box-border size-auto p-4 pb-8 rounded-xl font-sans w-full">
       <div className="flex items-center justify-between text-sm mb-1">
         <span className="font-semibold text-gray-800 truncate max-w-[60%]">
           {appName}

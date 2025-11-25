@@ -4,15 +4,18 @@ import React, { useEffect, useState } from "react";
 import MostRunningApp from "@/components/MostRunningApp";
 import { UsageAppsResponse } from "@/types/usageApps";
 import { fetchUsageApps } from "@/lib/fetchUsageApps";
+import DeviceScoring from "@/components/DeviceScoring";
+import { ScreenLabel } from "@/types/impactCalculation";
 
 // Define props for usage apps
 type UsageAppsProps = {
   device_id: string;
   table_name: string;
   top_rank: number;
+  onScreenLabelChange: (label: ScreenLabel | null) => void;
 }
 
-const Insights: React.FC<UsageAppsProps> = ({device_id, table_name, top_rank}) => {
+const Insights: React.FC<UsageAppsProps> = ({device_id, table_name, top_rank, onScreenLabelChange}) => {
   // Define most running application states
   const [apps, setApps] = useState<UsageAppsResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -83,6 +86,7 @@ const Insights: React.FC<UsageAppsProps> = ({device_id, table_name, top_rank}) =
 
           {!loading && !error && mostRunningApps.length > 0 && (
             <div className="space-y-2">
+              <h3 className="text-center font-semibold font-sans text-gray-700 mb-3">Application Usage</h3>
               {mostRunningApps.map((app, index) => (
                 <MostRunningApp 
                 key={index}
@@ -93,11 +97,9 @@ const Insights: React.FC<UsageAppsProps> = ({device_id, table_name, top_rank}) =
             </div>
           )}
         </div>
+        {/* Device Scoring and Recommendation */}
         <div className="box-border size-auto border-2 p-4 rounded-xl ml-4 shadow-md hover:shadow-lg transition-all duration-300">
-          <h3 className="text-center font-semibold font-sans text-gray-500">Insights & Recommendation</h3>
-          <p className="text-justify mt-4 font-sans">Device anda masih termasuk dalam kondisi sehat,
-            tetap pertahankan selama 1-2 tahun kedepan untuk
-            mengurangi kontribusi limbah elektronik</p>
+          <DeviceScoring onScreenLabelChange={onScreenLabelChange} />
         </div>
       </div>
     </section>
