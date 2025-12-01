@@ -38,7 +38,7 @@ type ImpactCardProps = {
 }
 
 // Define ImpactCard component
-const ImpactCard: React.FC<ImpactCardProps> = ({device_id, soh_pred_pct, rul_months, screen_label, expiry_date}) => {
+const ImpactCard: React.FC<ImpactCardProps> = ({device_id, soh_pred_pct, rul_months, screen_label}) => {
   // Define state for impact data
   const [impact, setImpact] = useState<ImpactResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -181,6 +181,12 @@ const ImpactCard: React.FC<ImpactCardProps> = ({device_id, soh_pred_pct, rul_mon
                     -{impact.scenarios.conservative.carbon_saved_kg.toFixed(2)} Kg CO2e
                   </span>
                 </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Equivalent Card Distance</span>
+                  <span className="font-semibold text-slate-800">
+                    {impact.scenarios.conservative.car_km_equivalent.toFixed(2)} Km
+                  </span>
+                </div>
               </div>
             </div>
             {/* Optimistic */}
@@ -216,12 +222,21 @@ const ImpactCard: React.FC<ImpactCardProps> = ({device_id, soh_pred_pct, rul_mon
                     -{impact.scenarios.optimistic.carbon_saved_kg.toFixed(2)} Kg CO2e
                   </span>
                 </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Equivalent Car Distance</span>
+                  <span className="font-semibold text-slate-800">
+                    {impact.scenarios.optimistic.car_km_equivalent.toFixed(2)} Km
+                  </span>
+                </div>
               </div>
             </div>
           </div>
           {/* Footnote */}
           <p className="mt-1 text-[10px] text-slate-400">
             *Estimation based on device current usage.
+          </p>
+          <p className="text-[10px] text-slate-400 mt-2">
+            *Carbon saved converted using 0.192 kg CO₂e/km (EPA Standard gasoline car).
           </p>
         </div>
       )}

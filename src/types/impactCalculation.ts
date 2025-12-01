@@ -12,6 +12,7 @@ export interface EwasteImpact {
   ewaste_with_system_kg: number;
   ewaste_reduced_kg: number;
   carbon_saved_kg: number;
+  car_km_equivalent: number;
 }
 
 // Define impact request payload
