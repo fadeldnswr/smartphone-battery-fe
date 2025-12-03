@@ -182,7 +182,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({device_id, soh_pred_pct, rul_mon
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Equivalent Card Distance</span>
+                  <span className="text-slate-500">Tail Pipe Emission (Emisi Knalpot Mobil)</span>
                   <span className="font-semibold text-slate-800">
                     {impact.scenarios.conservative.car_km_equivalent.toFixed(2)} Km
                   </span>
