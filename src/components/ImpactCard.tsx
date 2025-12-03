@@ -7,8 +7,8 @@ import formatExpiryDate from "@/utils/utils";
 
 // Helper for badge action colors
 const actionLabel: Record<ImpactResponse["action"], string> = {
-  hold: "Tahan pakai HP",
-  replace_phone: "Ganti HP",
+  hold: "Tahan penggunaan",
+  replace_phone: "Ganti perangkat",
   replace_battery: "Ganti baterai",
   replace_screen: "Ganti layar",
 }
