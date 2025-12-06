@@ -60,20 +60,18 @@ const BatteryImpactAnalysis: React.FC<BatteryImpactAnalysisProps> = ({device_id,
 
   // Define State of Health history
   const sohHistory: SoHPoint[] = useMemo(() => {
-    if(!metrics || !metrics.soh_data || metrics.soh_data.length === 0) return [];
-    const lastCycles = metrics.cycles_data?.[0].cycles_est ?? null;
-    const n = metrics.soh_data.length;
-    
-    return metrics.soh_data.map((d, index) => {
-      const efc = lastCycles != null && n > 1 ? (lastCycles * index) / (n - 1) : index;
-      return {
-        created_at: d.created_at,
-        efc,
-        soh_true: d.soh_pct,
-        soh_pred: prediction ? prediction.soh_series[index]?.soh_pred ?? null : null,
-      }
-    })
-  }, [metrics, prediction]);
+  if (!prediction || !prediction.soh_series || prediction.soh_series.length === 0) {
+    return [];
+  }
+  return prediction.soh_series
+    .filter((p) => p.soh_true != null && p.soh_pred != null && p.efc != null)
+    .map((p) => ({
+      created_at: p.created_at,
+      efc: p.efc as number,
+      soh_true: p.soh_true,
+      soh_pred: p.soh_pred,
+    }));
+}, [prediction]);
 
   // Create function to format months and years
   const formatMonthsAndYears = (months: number | null | undefined) => {
