@@ -1,7 +1,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const hasAccess = request.cookies.get("sb-access-token")?.value;
   const isLogin = request.nextUrl.pathname.startsWith("/login");
 
